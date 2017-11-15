@@ -1,0 +1,52 @@
+//1
+const printDiamond = function(char,num)
+{
+	const makeStr = function(n,char)
+	{
+		if(n<1)
+			return'';
+		return char+makeStr(n-1,char);
+	}
+	const helper = function(n,spaces,char)
+	{
+		if(n<0)
+			return"";
+		console.log(makeStr(spaces,' ')+makeStr(char,char));
+		if(n>Math.ceil((N)/2)+1)
+			helper(n-1,spaces-1,char+2);
+		else if(n<Math.ceil((N)/2))
+			helper(n-1,spaces+1,char-2);
+		else if(n===Math.ceil(N/2)+1)
+			helper(n-2,0,N);
+	}
+	const N=2*Math.floor(num/2)+1;
+	helper(N,Math.floor(N/2),1);
+}
+//2
+const printDiamond = function(char,num)
+{
+	const makeStr = function(n,char)
+	{
+		let str="";
+		for(let i=0;i<n;i++)
+			str+=char;
+		return str;
+	}
+	const N=2*Math.floor(num/2)+1;
+	let spaces=Math.floor(N/2);
+	let char=1;
+	for(let i=N;i>0;i--)
+	{
+		console.log(makeStr(spaces,' ')+makeStr(char,char));
+		if(i>Math.ceil((N)/2))
+		{
+			spaces-=1;
+			char+=2;
+		}
+		else if(i<Math.ceil((N)/2)+1)
+		{
+			spaces+=1;
+			char-=2;
+		}
+	}
+}
